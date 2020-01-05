@@ -1,3 +1,12 @@
+# Welcome!
+You my friend have stumbled upon my sandbox of hooks. There are many like it, but this one is mine. 
+
+Using a base built off of [MPJ and Dan Abramov's musing on the subject](https://youtu.be/G-aO5hzo1aw) I Frankensteined their code to look a bit more like something that feels better, but was clearly built in a day. 
+
+I may add to this or not. It's really just a basis for learning and breaking things with React Hooks as the center focus.
+
+# React-y Stuff 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
