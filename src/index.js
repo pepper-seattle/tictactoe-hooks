@@ -1,12 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Board from './components/Board';
+import Results from './components/Results';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function Game() {
+  const defaultSquares = Array(9).fill(null);
+  const initialState = {
+    isXNext: true,
+    squares: defaultSquares,
+    winner: ''
+  };
+  const [{isXNext, squares, winner}, setState] = useState(initialState);
+
+  const activePlayer = isXNext ? 'X' : 'O';
+  return (
+    <div className="game">
+      <div className="game-board">
+        <Board 
+          activePlayer={activePlayer}
+          initialState={initialState}
+          isXNext={isXNext}
+          setState={setState}
+          squares={squares}
+        />
+      </div>
+      <div className="game-info">
+        <Results
+          setState={setState}
+          squares={squares} 
+          winner={winner}
+        />
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
